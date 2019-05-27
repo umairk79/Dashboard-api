@@ -3,12 +3,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from . import config
 import time
+from django.core.mail import send_mail
 # Create your views here.
 
 
 class projects(APIView):
 
     def get(self, request):
+        send_mail('mail subject', 'body content', 'kuh282930@gmail.com',
+                  ['khanumair7910@gmail.com'], fail_silently=False)
         return Response(config.projects)
 
 class login(APIView):
